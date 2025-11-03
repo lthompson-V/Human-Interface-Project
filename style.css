@@ -80,3 +80,41 @@ main{
 .fa-universal-access:hover{
     cursor: pointer;
 }
+
+/* More Drop down Styles */
+
+.more-contents {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s ease;
+  position: absolute;
+  background: white;
+  border: 1px solid #ccc;
+  padding: 10px;
+  right: 3.5em;
+  top: 4em;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.more-contents.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.menu{
+  padding: .6em; 
+  border-bottom: 1px solid rgba(0, 0, 0, 0.445);
+}
+.menu a{
+  text-decoration: none;
+  color: black;
+  transition: .2s ease-in-out;
+}
+.menu a:hover{
+  color: rgb(255, 84, 17);
+}
+.contact-row{
+  border-bottom: none;
+}
