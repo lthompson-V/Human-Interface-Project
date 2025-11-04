@@ -1,121 +1,48 @@
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    font-family: "Roboto", sans-serif;
-}
 
 
-/* Header and nav links styling */
-header{
-    height: 4em;
-    background-color: rgb(255, 255, 255);
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.more-tab {
+    position: relative;
 }
-.logo{
-    padding-left: 4em;
-    font-size: 1.8em;
-    font-family: "Poppins", sans-serif;
-    font-weight: 500;
-    color: rgb(255, 84, 17);
-    text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
-}
-
-nav ul{
-    display: flex;
-    padding-right: 6em;
-}
-ul li{
-    list-style-type: none;
-    padding: 1em;
-    
-}
-ul li a {
-  position: relative;
-  color: rgb(0, 0, 0);
-  text-decoration: none;
-  font-size: 1em;
-  transition: color 0.3s;
-  font-weight: 400;
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
-}
-
-ul li a:hover{
-    color: rgb(255, 84, 17);
-}
-.fa-caret-down{
-    color: rgb(255, 84, 17);
-}
-
-/* Start of main content styling */
-main{
-    height: calc(100vh - 4em);
-    width: 100%;
-    background-color: #374e58;
-    
-}
-
-.fa-universal-access{
-    position: fixed;
-    bottom: 40px;
-    right: 30px;
-    font-size: 2em;
-    color: rgb(255, 84, 17);
-    animation: bounce 2s infinite;
-}
-@keyframes bounce {
-  0%, 20%, 50%, 80%, 100% {
-    transform: translateY(0);
-  }
-  40% {
-    transform: translateY(-5px); /* move up */
-  }
-  60% {
-    transform: translateY(-7px); /* smaller bounce */
-  }
-}
-.fa-universal-access:hover{
-    cursor: pointer;
-}
-
-
-/* More Drop down Styles */
 
 .more-contents {
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(10px);
-  transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s ease;
-  position: absolute;
-  background: white;
-  border: 1px solid #ccc;
-  padding: 10px;
-  right: 3.5em;
-  top: 4em;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s ease;
+    position: absolute;
+    background: white;
+    border: 1px solid #ccc;
+    padding: 10px;
+    right: 3.5em;
+    top: 4em;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    min-width: 150px;
+    z-index: 1000;
 }
 
 .more-contents.show {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
 }
 
 .menu{
-  padding: .6em; 
-  border-bottom: 1px solid rgba(0, 0, 0, 0.445);
+    padding: .6em; 
+    border-bottom: 1px solid rgba(0, 0, 0, 0.445);
 }
 .menu a{
-  text-decoration: none;
-  color: black;
-  transition: .2s ease-in-out;
+    text-decoration: none;
+    color: black;
+    transition: .2s ease-in-out;
 }
 .menu a:hover{
-  color: rgb(255, 84, 17);
+    color: rgb(255, 84, 17);
 }
 .contact-row{
-  border-bottom: none;
+    border-bottom: none;
+}
+
+/* Ensure nav has proper positioning */
+nav {
+    position: relative;
 }
