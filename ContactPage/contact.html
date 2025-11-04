@@ -207,43 +207,7 @@
             background-color: rgb(230, 70, 10);
         }
 
-        /* More dropdown styles */
-        .more-contents {
-            display: none;
-            position: absolute;
-            top: 100%;
-            right: 6em;
-            background-color: white;
-            border-radius: 4px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            z-index: 1000;
-            min-width: 150px;
-        }
-
-        .more-contents .menu {
-            padding: 0.8em 1em;
-            border-bottom: 1px solid #f0f0f0;
-        }
-
-        .more-contents .menu:last-child {
-            border-bottom: none;
-        }
-
-        .more-contents .menu a {
-            color: #333;
-            text-decoration: none;
-            font-weight: 400;
-            display: block;
-            transition: color 0.3s;
-        }
-
-        .more-contents .menu a:hover {
-            color: rgb(255, 84, 17);
-        }
-
-        .more-tab:hover .more-contents {
-            display: block;
-        }
+        /* Remove the old dropdown styles from HTML - use CSS file instead */
         
         @media (max-width: 768px) {
             .form-row {
@@ -257,10 +221,6 @@
             
             .contact-title {
                 font-size: 2em;
-            }
-
-            .more-contents {
-                right: 1em;
             }
         }
     </style>
