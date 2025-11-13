@@ -134,7 +134,7 @@ main{
 }
 .left-container{
   text-align: center;
-  margin-left: 5em;
+  margin-left: 6em;
 }
 .main-text{
   color:white;
@@ -175,7 +175,7 @@ main{
   
 }
 .main-btns a:hover {
-  background-color: rgb(230, 70, 10);
+  background-color: rgb(182, 59, 15);
 }
 .right-side{
   height: calc(100vh - 4em);
