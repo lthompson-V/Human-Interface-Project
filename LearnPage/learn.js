@@ -16,3 +16,14 @@ moreTab.addEventListener('mouseleave', () => {
 moreContent.addEventListener('mouseleave', () => {
   moreContent.classList.remove('show');
 });
+
+
+// accessibility popup
+
+
+let accessContainer = document.querySelector('.access-container');
+let accessBtn = document.querySelector('.fa-universal-access');
+
+accessBtn.addEventListener('click', () => {
+  accessContainer.classList.toggle('open');
+});
