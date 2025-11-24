@@ -250,34 +250,32 @@
         <div class="contact-container">
             <h1 class="contact-title">Contact Us</h1>
             
-            <!-- Netlify Forms -->
-            <form class="contact-form" id="contactForm" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-                <!-- Netlify Forms Configuration -->
-                <input type="hidden" name="form-name" value="contact">
-                <p class="hidden">
-                    <label>Don't fill this out if you're human: <input name="bot-field" /></label>
-                </p>
-                
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="phone">Phone</label>
-                        <input type="tel" id="phone" name="phone">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="message">Message</label>
-                    <textarea id="message" name="message" required></textarea>
-                </div>
-                <button type="submit" class="submit-btn">Send Form</button>
-            </form>
+            <form class="contact-form" id="contactForm" name="contact" method="POST" netlify data-netlify="true" netlify-honeypot="bot-field">
+    <input type="hidden" name="form-name" value="contact">
+    <p style="display: none;">
+        <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+    </p>
+    
+    <div class="form-row">
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+            <label for="phone">Phone</label>
+            <input type="tel" id="phone" name="phone">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" required></textarea>
+    </div>
+    <button type="submit" class="submit-btn">Send Form</button>
+</form>
         </div>
 
         <!-- Custom Success Popup -->
@@ -302,28 +300,17 @@
     </main>
 
     <script>
-        // Netlify Forms handling with custom popup
-        document.getElementById("contactForm").addEventListener("submit", function(event) {
-            
-            
-            const form = event.target;
-            const button = form.querySelector("button[type='submit']");
-            
-            // Show loading state
-            button.disabled = true;
-            button.textContent = "Sending...";
-           
-            
-            
-            setTimeout(() => {
-                showSuccessPopup();
-                form.reset();
-                button.disabled = false;
-                button.textContent = "Send Form";
-            }, 1500);
-            
-        
-        });
+       // Netlify Forms handling
+document.getElementById("contactForm").addEventListener("submit", function(event) {
+    const form = event.target;
+    const button = form.querySelector("button[type='submit']");
+    
+    // Show loading state
+    button.disabled = true;
+    button.textContent = "Sending...";
+    
+    
+});
 
         // Success popup functions
         function showSuccessPopup() {
@@ -352,7 +339,7 @@
             if (e.target === this) this.style.display = 'none';
         });
 
-        document.addEventListener('contextmenu', event => event.preventDefault());
+        
     </script>
     <script src="contact.js"></script>
 
