@@ -1,332 +1,338 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SyntaxHub - Contact Us</title>
-    <link rel="stylesheet" href="contact.css">
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>SyntaxHub - Contact Us</title>
+        <link rel="stylesheet" href="contact.css">
 
-    <!-- CDN for font awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    
-    <!-- Tags for Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
-
-    <style>
-        .contact-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100%;
-            color: white;
-            padding: 2em;
-        }
+        <!-- CDN for font awesome -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         
-        .contact-title {
-            font-size: 2.5em;
-            margin-bottom: 1.5em;
-            font-weight: 500;
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-        }
-        
-        .contact-form {
-            width: 100%;
-            max-width: 600px;
-            background-color: rgba(255, 255, 255, 0.1);
-            padding: 2em;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-        }
-        
-        .form-row {
-            display: flex;
-            gap: 1em;
-            margin-bottom: 1.5em;
-        }
-        
-        .form-group {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .form-group label {
-            margin-bottom: 0.5em;
-            font-weight: 500;
-        }
-        
-        .form-group input,
-        .form-group textarea {
-            padding: 0.8em;
-            border: none;
-            border-radius: 4px;
-            font-size: 1em;
-            background-color: rgba(255, 255, 255, 0.9);
-            width: 100%;
-            box-sizing: border-box;
-        }
-        
-        .form-group textarea {
-            min-height: 120px;
-            resize: vertical;
-            width: 100%;
-            box-sizing: border-box;
-        }
-        
-        .submit-btn {
-            background-color: rgb(255, 84, 17);
-            color: white;
-            border: none;
-            padding: 0.6em 1.5em;
-            font-size: 1em;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-            margin-top: 1em;
-            font-weight: 500;
-            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
-            width: auto;
-            display: inline-block;
-        }
-        
-        .submit-btn:hover {
-            background-color: rgb(230, 70, 10);
-        }
-        
-        .submit-btn:disabled {
-            background-color: #cccccc;
-            cursor: not-allowed;
-        }
+        <!-- Tags for Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
 
-        /* Success Popup Styles */
-        .success-popup {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.7);
-            z-index: 1000;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .success-popup-content {
-            background-color: white;
-            padding: 2em;
-            border-radius: 8px;
-            max-width: 400px;
-            width: 90%;
-            text-align: center;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-        }
-
-        .success-popup-title {
-            color: #28a745;
-            font-size: 1.5em;
-            margin-bottom: 1em;
-            font-weight: 500;
-        }
-
-        .success-popup-message {
-            color: #333;
-            margin-bottom: 1.5em;
-            line-height: 1.5;
-        }
-
-        .success-popup-btn {
-            background-color: rgb(255, 84, 17);
-            color: white;
-            border: none;
-            padding: 0.6em 1.5em;
-            font-size: 1em;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-            font-weight: 500;
-        }
-
-        .success-popup-btn:hover {
-            background-color: rgb(230, 70, 10);
-        }
-
-        /* Error Popup Styles */
-        .error-popup {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.7);
-            z-index: 1000;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .error-popup-content {
-            background-color: white;
-            padding: 2em;
-            border-radius: 8px;
-            max-width: 400px;
-            width: 90%;
-            text-align: center;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-        }
-
-        .error-popup-title {
-            color: #dc3545;
-            font-size: 1.5em;
-            margin-bottom: 1em;
-            font-weight: 500;
-        }
-
-        .error-popup-message {
-            color: #333;
-            margin-bottom: 1.5em;
-            line-height: 1.5;
-        }
-
-        .error-popup-btn {
-            background-color: rgb(255, 84, 17);
-            color: white;
-            border: none;
-            padding: 0.6em 1.5em;
-            font-size: 1em;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-            font-weight: 500;
-        }
-
-        .error-popup-btn:hover {
-            background-color: rgb(230, 70, 10);
-        }
-        
-        @media (max-width: 768px) {
-            .form-row {
+        <style>
+            .contact-container {
+                display: flex;
                 flex-direction: column;
-                gap: 1em;
-            }
-            
-            .contact-form {
-                padding: 1.5em;
+                align-items: center;
+                justify-content: center;
+                height: 100%;
+                color: white;
+                padding: 2em;
             }
             
             .contact-title {
-                font-size: 2em;
+                font-size: 2.5em;
+                margin-bottom: 1.5em;
+                font-weight: 500;
+                text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
             }
-        }
-    </style>
-</head>
-<body>
-    <header>
-        <p class="logo">SyntaxHub</p>
-        <nav>
-            <ul>
-                <li><a href="../index.html">Home</a></li>
-                <li><a href="../LearnPage/learn.html">Learn</a></li>
-                <li><a href="../PracticePage/practice.html">Practice</a></li>
-                <li><a href="../ProgressPage/progress.html">Progress</a></li>
-                <li class="more-tab">
-                    <a href="#">More <i class="fa-solid fa-caret-down"></i></a>
-                    <div class="more-contents">
-                        <div class="create-row menu"><a href="../CreatePage/create.html">Create</a></div>
-                        <div class="profile-row menu"><a href="../ProfilePage/profile.html">Profile</a></div>
-                        <div class="resources-row menu"><a href="../ResourcesPage/resources.html">Resources</a></div>
-                        <div class="about-row menu"><a href="../AboutPage/about.html">About Us</a></div>
-                        <div class="contact-row menu"><a href="../ContactPage/contact.html">Contact Us</a></div>
-                    </div>
-                </li>
-            </ul>
-        </nav>
-    </header>
-    
-    <main>
-        <div class="contact-container">
-            <h1 class="contact-title">Contact Us</h1>
             
-           <form class="contact-form" id="contactForm" action="https://formsubmit.co/help.syntaxhub@gmail.com" method="POST">
-    <!-- FormSubmit Configuration -->
-    <input type="hidden" name="_subject" value="New Contact Form Submission - SyntaxHub">
-    <input type="hidden" name="_template" value="table">
-    <input type="hidden" name="_captcha" value="false">
-    
-    <div class="form-row">
-        <div class="form-group">
-            <label for="name">Name</label>
-            <input type="text" id="name" name="name" required>
-        </div>
-        <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" required>
-        </div>
-        <div class="form-group">
-            <label for="phone">Phone</label>
-            <input type="tel" id="phone" name="phone">
-        </div>
-    </div>
-    <div class="form-group">
-        <label for="message">Message</label>
-        <textarea id="message" name="message" required></textarea>
-    </div>
-    <button type="submit" class="submit-btn">Send Form</button>
-</form>
-        </div>
+            .contact-form {
+                width: 100%;
+                max-width: 600px;
+                background-color: rgba(255, 255, 255, 0.1);
+                padding: 2em;
+                border-radius: 8px;
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            }
+            
+            .form-row {
+                display: flex;
+                gap: 1em;
+                margin-bottom: 1.5em;
+            }
+            
+            .form-group {
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+            }
+            
+            .form-group label {
+                margin-bottom: 0.5em;
+                font-weight: 500;
+            }
+            
+            .form-group input,
+            .form-group textarea {
+                padding: 0.8em;
+                border: none;
+                border-radius: 4px;
+                font-size: 1em;
+                background-color: rgba(255, 255, 255, 0.9);
+                width: 100%;
+                box-sizing: border-box;
+            }
+            
+            .form-group textarea {
+                min-height: 120px;
+                resize: vertical;
+                width: 100%;
+                box-sizing: border-box;
+            }
+            
+            .submit-btn {
+                background-color: rgb(255, 84, 17);
+                color: white;
+                border: none;
+                padding: 0.6em 1.5em;
+                font-size: 1em;
+                border-radius: 4px;
+                cursor: pointer;
+                transition: background-color 0.3s;
+                margin-top: 1em;
+                font-weight: 500;
+                box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+                width: auto;
+                display: inline-block;
+            }
+            
+            .submit-btn:hover {
+                background-color: rgb(230, 70, 10);
+            }
+            
+            .submit-btn:disabled {
+                background-color: #cccccc;
+                cursor: not-allowed;
+            }
 
-        <!-- Custom Success Popup -->
-        <div class="success-popup" id="successPopup">
-            <div class="success-popup-content">
-                <h3 class="success-popup-title">Message Sent Successfully!</h3>
-                <p class="success-popup-message">Thank you for contacting us. We'll get back to you soon!</p>
-                <button class="success-popup-btn" id="closeSuccessPopup">OK</button>
+            /* Success Popup Styles */
+            .success-popup {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.7);
+                z-index: 1000;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .success-popup-content {
+                background-color: white;
+                padding: 2em;
+                border-radius: 8px;
+                max-width: 400px;
+                width: 90%;
+                text-align: center;
+                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            }
+
+            .success-popup-title {
+                color: #28a745;
+                font-size: 1.5em;
+                margin-bottom: 1em;
+                font-weight: 500;
+            }
+
+            .success-popup-message {
+                color: #333;
+                margin-bottom: 1.5em;
+                line-height: 1.5;
+            }
+
+            .success-popup-btn {
+                background-color: rgb(255, 84, 17);
+                color: white;
+                border: none;
+                padding: 0.6em 1.5em;
+                font-size: 1em;
+                border-radius: 4px;
+                cursor: pointer;
+                transition: background-color 0.3s;
+                font-weight: 500;
+            }
+
+            .success-popup-btn:hover {
+                background-color: rgb(230, 70, 10);
+            }
+
+            /* Error Popup Styles */
+            .error-popup {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.7);
+                z-index: 1000;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .error-popup-content {
+                background-color: white;
+                padding: 2em;
+                border-radius: 8px;
+                max-width: 400px;
+                width: 90%;
+                text-align: center;
+                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            }
+
+            .error-popup-title {
+                color: #dc3545;
+                font-size: 1.5em;
+                margin-bottom: 1em;
+                font-weight: 500;
+            }
+
+            .error-popup-message {
+                color: #333;
+                margin-bottom: 1.5em;
+                line-height: 1.5;
+            }
+
+            .error-popup-btn {
+                background-color: rgb(255, 84, 17);
+                color: white;
+                border: none;
+                padding: 0.6em 1.5em;
+                font-size: 1em;
+                border-radius: 4px;
+                cursor: pointer;
+                transition: background-color 0.3s;
+                font-weight: 500;
+            }
+
+            .error-popup-btn:hover {
+                background-color: rgb(230, 70, 10);
+            }
+            
+            @media (max-width: 768px) {
+                .form-row {
+                    flex-direction: column;
+                    gap: 1em;
+                }
+                
+                .contact-form {
+                    padding: 1.5em;
+                }
+                
+                .contact-title {
+                    font-size: 2em;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <p class="logo">SyntaxHub</p>
+            <nav>
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../LearnPage/learn.html">Learn</a></li>
+                    <li><a href="../PracticePage/practice.html">Practice</a></li>
+                    <li><a href="../ProgressPage/progress.html">Progress</a></li>
+                    <li class="more-tab">
+                        <a href="#">More <i class="fa-solid fa-caret-down"></i></a>
+                        <div class="more-contents">
+                            <div class="create-row menu"><a href="../CreatePage/create.html">Create</a></div>
+                            <div class="profile-row menu"><a href="../ProfilePage/profile.html">Profile</a></div>
+                            <div class="resources-row menu"><a href="../ResourcesPage/resources.html">Resources</a></div>
+                            <div class="about-row menu"><a href="../AboutPage/about.html">About Us</a></div>
+                            <div class="contact-row menu"><a href="../ContactPage/contact.html">Contact Us</a></div>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        
+        <main>
+            <div class="contact-container">
+                <h1 class="contact-title">Contact Us</h1>
+                
+            <form class="contact-form" id="contactForm">
+        <div class="form-row">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone</label>
+                <input type="tel" id="phone" name="phone">
             </div>
         </div>
-
-        <!-- Error Popup -->
-        <div class="error-popup" id="errorPopup">
-            <div class="error-popup-content">
-                <h3 class="error-popup-title">Whoops! That wasn't supposed to happen.</h3>
-                <p class="error-popup-message">There was a problem sending your message, please try again.</p>
-                <button class="error-popup-btn" id="closeErrorPopup">Try Again</button>
-            </div>
+        <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" required></textarea>
         </div>
+        <button type="submit" class="submit-btn">Send Form</button>
+    </form>
+            </div>
 
-        <i class="fa-solid fa-universal-access"></i>
-    </main>
+            <!-- Custom Success Popup -->
+            <div class="success-popup" id="successPopup">
+                <div class="success-popup-content">
+                    <h3 class="success-popup-title">Message Sent Successfully!</h3>
+                    <p class="success-popup-message">Thank you for contacting us. We'll get back to you soon!</p>
+                    <button class="success-popup-btn" id="closeSuccessPopup">OK</button>
+                </div>
+            </div>
 
-    <script>
-// Formspark handling with custom popup
-        document.getElementById("contactForm").addEventListener("submit", function(event) {
-            event.preventDefault();
-    
+            <!-- Error Popup -->
+            <div class="error-popup" id="errorPopup">
+                <div class="error-popup-content">
+                    <h3 class="error-popup-title">Whoops! That wasn't supposed to happen.</h3>
+                    <p class="error-popup-message">There was a problem sending your message, please try again.</p>
+                    <button class="error-popup-btn" id="closeErrorPopup">Try Again</button>
+                </div>
+            </div>
+
+            <i class="fa-solid fa-universal-access"></i>
+        </main>
+
+        <script>
+            // Formspark mail system
+    document.getElementById("contactForm").addEventListener("submit", function(event) {
+        event.preventDefault();
+        
         const form = event.target;
         const button = form.querySelector("button[type='submit']");
-        const formData = new FormData(form);
-    
-        // Show loading state
+        
+        
         button.disabled = true;
         button.textContent = "Sending...";
-    
-        // Submit to Formspark
-        fetch(form.action, {
+        
+        
+        const formData = {
+            name: form.name.value,
+            email: form.email.value,
+            phone: form.phone.value || 'Not provided',
+            message: form.message.value
+        };
+        
+       
+        const FORMSPARK_URL = "https://submit-form.com/q4fAqE48N";
+        
+        
+        fetch(FORMSPARK_URL, {
             method: "POST",
-            body: formData,
             headers: {
+                "Content-Type": "application/json",
                 "Accept": "application/json"
-            }
+            },
+            body: JSON.stringify(formData)
         })
         .then(response => {
             if (response.ok) {
-                // Success - show your custom popup
+                // Success 
                 showSuccessPopup();
                 form.reset();
             } else {
-                // Error - show error popup
+                // Error 
                 showErrorPopup();
             }
         })
@@ -335,13 +341,13 @@
             showErrorPopup();
         })
         .finally(() => {
-            // Reset button state
+            
             button.disabled = false;
             button.textContent = "Send Form";
         });
     });
 
-
+    
     function showSuccessPopup() {
         document.getElementById('successPopup').style.display = 'flex';
     }
@@ -368,13 +374,13 @@
     });
 
     document.addEventListener('contextmenu', event => event.preventDefault());
-    </script>
-    <script src="contact.js"></script>
+        </script>
+        <script src="contact.js"></script>
 
-    <style>
-        .hidden {
-            display: none;
-        }
-    </style>
-</body>
-</html>
+        <style>
+            .hidden {
+                display: none;
+            }
+        </style>
+    </body>
+    </html>
