@@ -3,17 +3,617 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SyntaxHub</title>
+    <title>SyntaxHub - Profile</title>
     <link rel="stylesheet" href="profile.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* Profile-specific styles only */
+        .profile-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
 
-    <!-- CDN for font awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    
-    <!-- Tags for Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+        .profile-header {
+            text-align: center;
+            margin-bottom: 30px;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
 
+        .profile-pic-container {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        .profile-pic {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background-color: #e0e0e0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 50px;
+            color: #777;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            overflow: hidden;
+        }
+
+        .profile-pic img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .profile-pic:hover {
+            background-color: #d0d0d0;
+        }
+
+        .upload-text {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 84, 17, 0.8);
+            color: white;
+            padding: 5px;
+            font-size: 12px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .profile-pic-container:hover .upload-text {
+            opacity: 1;
+        }
+
+        .profile-info {
+            margin-bottom: 20px;
+        }
+
+        .profile-name {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #2c3e50;
+            border: none;
+            background: transparent;
+            width: 100%;
+            padding: 5px 0;
+            text-align: center;
+        }
+
+        .profile-name:focus {
+            outline: none;
+            border-bottom: 1px solid rgb(255, 84, 17);
+        }
+
+        .profile-details {
+            color: #666;
+            margin-bottom: 8px;
+            font-size: 16px;
+            border: none;
+            background: transparent;
+            width: 100%;
+            padding: 5px 0;
+            text-align: center;
+        }
+
+        .profile-details:focus {
+            outline: none;
+            border-bottom: 1px solid rgb(255, 84, 17);
+        }
+
+        .save-btn {
+            background-color: rgb(255, 84, 17);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 15px;
+            transition: background-color 0.3s;
+        }
+
+        .save-btn:hover {
+            background-color: rgb(179, 64, 18);
+        }
+
+        .tabs {
+            display: flex;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #ddd;
+            justify-content: center;
+        }
+
+        .tab {
+            padding: 12px 25px;
+            cursor: pointer;
+            border-bottom: 3px solid transparent;
+            font-weight: 500;
+            transition: all 0.3s;
+            color: white;
+        }
+
+        .tab.active {
+            border-bottom: 3px solid rgb(255, 84, 17);
+            color: rgb(255, 84, 17);
+            font-weight: 600;
+        }
+
+        .tab:hover:not(.active) {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .tab-content {
+            display: none;
+            background-color: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .tab-content h2 {
+            margin-bottom: 20px;
+            color: #2c3e50;
+            font-size: 22px;
+            text-align: center;
+        }
+
+        .decks-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .deck-card {
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            padding: 20px;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-left: 4px solid rgb(255, 84, 17);
+            position: relative;
+        }
+
+        .deck-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .deck-card h3 {
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+
+        .deck-card p {
+            margin-bottom: 10px;
+            color: #666;
+        }
+
+        .progress-bar {
+            height: 8px;
+            background-color: #e0e0e0;
+            border-radius: 4px;
+            margin: 15px 0 10px;
+            overflow: hidden;
+        }
+
+        .progress {
+            height: 100%;
+            background-color: rgb(255, 84, 17);
+            border-radius: 4px;
+            transition: width 0.5s;
+        }
+
+        .progress-text {
+            font-size: 14px;
+            color: #777;
+            text-align: right;
+        }
+
+        .remove-deck {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: none;
+            border: none;
+            color: #ff5555;
+            cursor: pointer;
+            font-size: 16px;
+            opacity: 0.7;
+            transition: opacity 0.3s;
+        }
+
+        .remove-deck:hover {
+            opacity: 1;
+        }
+
+        .friends-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+        }
+
+        .friend-card {
+            display: flex;
+            align-items: center;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            padding: 15px;
+            transition: background-color 0.3s;
+            position: relative;
+        }
+
+        .friend-card:hover {
+            background-color: #f0f0f0;
+        }
+
+        .friend-pic {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #e0e0e0;
+            margin-right: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            color: #777;
+            overflow: hidden;
+        }
+
+        .friend-pic img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .friend-info h3 {
+            margin-bottom: 5px;
+            color: #2c3e50;
+        }
+
+        .friend-info p {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .remove-friend {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: none;
+            border: none;
+            color: #ff5555;
+            cursor: pointer;
+            font-size: 16px;
+            opacity: 0.7;
+            transition: opacity 0.3s;
+        }
+
+        .remove-friend:hover {
+            opacity: 1;
+        }
+
+        .level-info {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            justify-content: center;
+        }
+
+        .level-circle {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: rgb(255, 84, 17);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-right: 25px;
+        }
+
+        .level-number {
+            font-size: 32px;
+            font-weight: bold;
+        }
+
+        .level-label {
+            font-size: 14px;
+        }
+
+        .level-details h3 {
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+
+        .level-details p {
+            margin-bottom: 10px;
+            color: #666;
+        }
+
+        .badges-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .badge-card {
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s;
+            border: 2px solid transparent;
+            position: relative;
+        }
+
+        .badge-card.earned {
+            border-color: rgb(255, 84, 17);
+            background-color: rgba(255, 84, 17, 0.1);
+        }
+
+        .badge-card.locked {
+            opacity: 0.6;
+        }
+
+        .badge-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .badge-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: #e0e0e0;
+            margin: 0 auto 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: #777;
+            position: relative;
+        }
+
+        .badge-card.earned .badge-icon {
+            background-color: rgb(255, 84, 17);
+            color: white;
+        }
+
+        .badge-card.locked .badge-icon::after {
+            content: '\f023';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+        }
+
+        .badge-card h3 {
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+
+        .badge-card p {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .badge-requirements {
+            font-size: 12px;
+            color: #888;
+            margin-top: 5px;
+        }
+
+        .add-btn {
+            background-color: rgb(255, 84, 17);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+        }
+
+        .add-btn:hover {
+            background-color: rgb(179, 64, 18);
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 10% auto;
+            padding: 30px;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 500px;
+            position: relative;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            color: #777;
+        }
+
+        .close-btn:hover {
+            color: #333;
+        }
+
+        .modal h2 {
+            margin-bottom: 20px;
+            color: #2c3e50;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #333;
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 10px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus, .form-group textarea:focus {
+            border-color: rgb(255, 84, 17);
+            outline: none;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .submit-btn {
+            background-color: rgb(255, 84, 17);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+            transition: background-color 0.3s;
+        }
+
+        .submit-btn:hover {
+            background-color: rgb(179, 64, 18);
+        }
+
+        /* Popup message styling */
+        .popup {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 20px 30px;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            z-index: 1001;
+            text-align: center;
+            display: none;
+        }
+
+        .popup.show {
+            display: block;
+            animation: fadeInOut 3s forwards;
+        }
+
+        @keyframes fadeInOut {
+            0% { opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+
+        .popup i {
+            font-size: 40px;
+            color: rgb(255, 84, 17);
+            margin-bottom: 10px;
+        }
+
+        .popup p {
+            font-size: 18px;
+            color: #333;
+        }
+
+        /* Profile field labels */
+        .field-label {
+            font-size: 14px;
+            color: #777;
+            margin-bottom: 5px;
+            text-align: center;
+        }
+
+        /* Empty state styling */
+        .empty-state {
+            text-align: center;
+            padding: 40px 20px;
+            color: #777;
+        }
+
+        .empty-state i {
+            font-size: 50px;
+            margin-bottom: 15px;
+            color: #ccc;
+        }
+
+        .empty-state p {
+            font-size: 16px;
+        }
+
+        /* Level progress styling */
+        .level-progress-container {
+            margin-top: 10px;
+        }
+
+        .level-progress-text {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 5px;
+        }
+
+        /* Add padding to main to ensure content is visible */
+        main {
+            padding: 2em 0;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -37,10 +637,133 @@
     </header>
     
     <main>
-        
+        <div class="profile-container">
+            <div class="profile-header">
+                <div class="profile-pic-container">
+                    <div class="profile-pic" id="profile-pic">
+                        <i class="fa-solid fa-user"></i>
+                        <div class="upload-text">Click to upload</div>
+                    </div>
+                    <input type="file" id="profile-pic-input" accept="image/*" style="display: none;">
+                </div>
+                <div class="profile-info">
+                    <div class="field-label">Name</div>
+                    <input type="text" class="profile-name" id="profile-name" placeholder="Enter your name">
+                    <div class="field-label">University</div>
+                    <input type="text" class="profile-details" id="profile-school" placeholder="Enter your university">
+                    <div class="field-label">Major</div>
+                    <input type="text" class="profile-details" id="profile-major" placeholder="Enter your major">
+                    <button class="save-btn" id="save-profile-btn">Save Profile</button>
+                </div>
+            </div>
+
+            <div class="tabs">
+                <div class="tab active" data-tab="friends">Friends</div>
+                <div class="tab" data-tab="decks">Decks</div>
+                <div class="tab" data-tab="badges">Badges</div>
+            </div>
+
+            <div class="tab-content active" id="friends-tab">
+                <h2>Friends</h2>
+                <div class="friends-list" id="friends-list">
+                    <!-- Friends will be added here dynamically -->
+                    <div class="empty-state" id="friends-empty" style="display: none;">
+                        <i class="fa-solid fa-user-friends"></i>
+                        <p>You haven't added any friends yet.</p>
+                    </div>
+                </div>
+                <button class="add-btn" id="add-friend-btn">Add Friend</button>
+            </div>
+
+            <div class="tab-content" id="decks-tab">
+                <h2>Decks</h2>
+                <div class="decks-grid" id="decks-grid">
+                    <!-- Decks will be added here dynamically -->
+                    <div class="empty-state" id="decks-empty">
+                        <i class="fa-solid fa-layer-group"></i>
+                        <p>You haven't created any decks yet.</p>
+                    </div>
+                </div>
+                <button class="add-btn" id="add-deck-btn">Create New Deck</button>
+            </div>
+
+            <div class="tab-content" id="badges-tab">
+                <h2>Badges</h2>
+                <div class="level-info">
+                    <div class="level-circle">
+                        <span class="level-number" id="user-level">0</span>
+                        <span class="level-label">Level</span>
+                    </div>
+                    <div class="level-details">
+                        <h3 id="level-title">New Learner</h3>
+                        <p id="level-description">Complete practice questions to earn experience and level up!</p>
+                        <div class="level-progress-container">
+                            <p class="level-progress-text" id="level-progress-text">0/100 XP to next level</p>
+                            <div class="progress-bar">
+                                <div class="progress" id="level-progress" style="width: 0%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="badges-grid" id="badges-grid">
+                    <!-- Badges will be added here dynamically -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Add Friend Modal -->
+        <div class="modal" id="add-friend-modal">
+            <div class="modal-content">
+                <span class="close-btn">&times;</span>
+                <h2>Add New Friend</h2>
+                <form id="add-friend-form">
+                    <div class="form-group">
+                        <label for="friend-name">Friend's Name:</label>
+                        <input type="text" id="friend-name" name="friend-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="friend-major">Major/Field:</label>
+                        <input type="text" id="friend-major" name="friend-major">
+                    </div>
+                    <div class="form-group">
+                        <label for="friend-pic">Profile Picture (optional):</label>
+                        <input type="file" id="friend-pic" name="friend-pic" accept="image/*">
+                    </div>
+                    <button type="submit" class="submit-btn">Add Friend</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Add Deck Modal -->
+        <div class="modal" id="add-deck-modal">
+            <div class="modal-content">
+                <span class="close-btn">&times;</span>
+                <h2>Create New Deck</h2>
+                <form id="add-deck-form">
+                    <div class="form-group">
+                        <label for="deck-name">Deck Name:</label>
+                        <input type="text" id="deck-name" name="deck-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="deck-description">Description:</label>
+                        <textarea id="deck-description" name="deck-description"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="deck-cards">Number of Cards:</label>
+                        <input type="number" id="deck-cards" name="deck-cards" min="1" value="10">
+                    </div>
+                    <button type="submit" class="submit-btn">Create Deck</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Popup Message -->
+        <div class="popup" id="popup-message">
+            <i class="fa-solid fa-check-circle"></i>
+            <p id="popup-text">Profile saved successfully!</p>
+        </div>
 
         <div class="access-container">
-        
             <div class="screen-reader">
                 <i class="fa-solid fa-wave-square"></i>
                 <p>Screen Reader</p>
@@ -67,18 +790,523 @@
             </div>
         </div>
 
-        <i class="fa-solid fa-universal-access"></i>
+        <i class="fa-solid fa-universal-access" id="access-icon"></i>
     </main>
 
-
-
-
-
-
-
-
-
-
-    <script src="profile.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Tab switching functionality
+            const tabs = document.querySelectorAll('.tab');
+            const tabContents = document.querySelectorAll('.tab-content');
+            
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    const tabId = tab.getAttribute('data-tab');
+                    
+                    // Remove active class from all tabs and contents
+                    tabs.forEach(t => t.classList.remove('active'));
+                    tabContents.forEach(c => c.classList.remove('active'));
+                    
+                    // Add active class to clicked tab and corresponding content
+                    tab.classList.add('active');
+                    document.getElementById(`${tabId}-tab`).classList.add('active');
+                });
+            });
+            
+            // Save profile functionality
+            const saveProfileBtn = document.getElementById('save-profile-btn');
+            
+            // Load saved data if available
+            loadProfileData();
+            loadFriends();
+            loadDecks();
+            loadBadges();
+            loadUserProgress();
+            
+            saveProfileBtn.addEventListener('click', () => {
+                const name = document.getElementById('profile-name').value;
+                const school = document.getElementById('profile-school').value;
+                const major = document.getElementById('profile-major').value;
+                
+                // Save to localStorage
+                saveProfileData(name, school, major);
+                
+                // Show popup message
+                showPopup("Profile saved successfully!");
+            });
+            
+            // Profile picture upload
+            const profilePic = document.getElementById('profile-pic');
+            const profilePicInput = document.getElementById('profile-pic-input');
+            
+            profilePic.addEventListener('click', () => {
+                profilePicInput.click();
+            });
+            
+            profilePicInput.addEventListener('change', function() {
+                if (this.files && this.files[0]) {
+                    const reader = new FileReader();
+                    
+                    reader.onload = function(e) {
+                        // Remove the icon and add the image
+                        profilePic.innerHTML = '';
+                        const img = document.createElement('img');
+                        img.src = e.target.result;
+                        profilePic.appendChild(img);
+                        
+                        // Add upload text back
+                        const uploadText = document.createElement('div');
+                        uploadText.className = 'upload-text';
+                        uploadText.textContent = 'Click to change';
+                        profilePic.appendChild(uploadText);
+                        
+                        // Save to localStorage
+                        localStorage.setItem('profilePicture', e.target.result);
+                        
+                        // Show success message
+                        showPopup("Profile picture updated!");
+                    }
+                    
+                    reader.readAsDataURL(this.files[0]);
+                }
+            });
+            
+            // Load profile picture if exists
+            const savedProfilePic = localStorage.getItem('profilePicture');
+            if (savedProfilePic) {
+                profilePic.innerHTML = '';
+                const img = document.createElement('img');
+                img.src = savedProfilePic;
+                profilePic.appendChild(img);
+                
+                const uploadText = document.createElement('div');
+                uploadText.className = 'upload-text';
+                uploadText.textContent = 'Click to change';
+                profilePic.appendChild(uploadText);
+            }
+            
+            // Add friend functionality
+            const addFriendBtn = document.getElementById('add-friend-btn');
+            const addFriendModal = document.getElementById('add-friend-modal');
+            const addFriendForm = document.getElementById('add-friend-form');
+            const friendsList = document.getElementById('friends-list');
+            const friendsEmpty = document.getElementById('friends-empty');
+            
+            addFriendBtn.addEventListener('click', () => {
+                addFriendModal.style.display = 'block';
+            });
+            
+            addFriendForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                
+                const name = document.getElementById('friend-name').value;
+                const major = document.getElementById('friend-major').value;
+                const picFile = document.getElementById('friend-pic').files[0];
+                
+                let picSrc = '';
+                if (picFile) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        picSrc = e.target.result;
+                        addFriendToDOM(name, major, picSrc);
+                        saveFriend(name, major, picSrc);
+                        showPopup("Friend added successfully!");
+                        addFriendModal.style.display = 'none';
+                        addFriendForm.reset();
+                    };
+                    reader.readAsDataURL(picFile);
+                } else {
+                    addFriendToDOM(name, major, '');
+                    saveFriend(name, major, '');
+                    showPopup("Friend added successfully!");
+                    addFriendModal.style.display = 'none';
+                    addFriendForm.reset();
+                }
+            });
+            
+            // Add deck functionality
+            const addDeckBtn = document.getElementById('add-deck-btn');
+            const addDeckModal = document.getElementById('add-deck-modal');
+            const addDeckForm = document.getElementById('add-deck-form');
+            const decksGrid = document.getElementById('decks-grid');
+            const decksEmpty = document.getElementById('decks-empty');
+            
+            addDeckBtn.addEventListener('click', () => {
+                addDeckModal.style.display = 'block';
+            });
+            
+            addDeckForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                
+                const name = document.getElementById('deck-name').value;
+                const description = document.getElementById('deck-description').value;
+                const cards = document.getElementById('deck-cards').value;
+                
+                addDeckToDOM(name, description, cards);
+                saveDeck(name, description, cards);
+                showPopup("Deck created successfully!");
+                
+                addDeckModal.style.display = 'none';
+                addDeckForm.reset();
+            });
+            
+            // Close modals when clicking X
+            document.querySelectorAll('.close-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    this.closest('.modal').style.display = 'none';
+                });
+            });
+            
+            // Close modals when clicking outside
+            window.addEventListener('click', (e) => {
+                if (e.target.classList.contains('modal')) {
+                    e.target.style.display = 'none';
+                }
+            });
+            
+            // More dropdown functionality
+            const moreTab = document.querySelector('.more-tab');
+            const moreContents = document.querySelector('.more-contents');
+            
+            moreTab.addEventListener('click', (e) => {
+                e.preventDefault();
+                moreContents.classList.toggle('show');
+            });
+            
+            // Close more contents when clicking elsewhere
+            document.addEventListener('click', (e) => {
+                if (!moreTab.contains(e.target) && !moreContents.contains(e.target)) {
+                    moreContents.classList.remove('show');
+                }
+            });
+            
+            // Accessibility icon functionality
+            const accessIcon = document.getElementById('access-icon');
+            const accessContainer = document.querySelector('.access-container');
+            
+            accessIcon.addEventListener('click', () => {
+                accessContainer.classList.toggle('open');
+            });
+            
+            // Function to save profile data to localStorage
+            function saveProfileData(name, school, major) {
+                const profileData = {
+                    name: name,
+                    school: school,
+                    major: major
+                };
+                localStorage.setItem('syntaxHubProfile', JSON.stringify(profileData));
+            }
+            
+            // Function to load profile data from localStorage
+            function loadProfileData() {
+                const savedProfile = localStorage.getItem('syntaxHubProfile');
+                if (savedProfile) {
+                    const profileData = JSON.parse(savedProfile);
+                    document.getElementById('profile-name').value = profileData.name;
+                    document.getElementById('profile-school').value = profileData.school;
+                    document.getElementById('profile-major').value = profileData.major;
+                }
+            }
+            
+            // Function to load user progress
+            function loadUserProgress() {
+                const userProgress = JSON.parse(localStorage.getItem('syntaxHubUserProgress')) || {
+                    level: 0,
+                    experience: 0,
+                    nextLevelExp: 100
+                };
+                
+                document.getElementById('user-level').textContent = userProgress.level;
+                document.getElementById('level-progress-text').textContent = 
+                    `${userProgress.experience}/${userProgress.nextLevelExp} XP to next level`;
+                
+                const progressPercentage = (userProgress.experience / userProgress.nextLevelExp) * 100;
+                document.getElementById('level-progress').style.width = `${progressPercentage}%`;
+                
+                // Update level title based on level
+                const levelTitles = [
+                    "New Learner",
+                    "Code Explorer",
+                    "Syntax Student",
+                    "Programming Apprentice",
+                    "Code Craftsman",
+                    "Algorithm Artist"
+                ];
+                
+                const levelIndex = Math.min(userProgress.level, levelTitles.length - 1);
+                document.getElementById('level-title').textContent = levelTitles[levelIndex];
+            }
+            
+            // Function to add friend to DOM
+            function addFriendToDOM(name, major, picSrc) {
+                // Hide empty state if visible
+                friendsEmpty.style.display = 'none';
+                
+                const friendCard = document.createElement('div');
+                friendCard.className = 'friend-card';
+                
+                const friendPic = document.createElement('div');
+                friendPic.className = 'friend-pic';
+                
+                if (picSrc) {
+                    const img = document.createElement('img');
+                    img.src = picSrc;
+                    friendPic.appendChild(img);
+                } else {
+                    friendPic.innerHTML = '<i class="fa-solid fa-user"></i>';
+                }
+                
+                const friendInfo = document.createElement('div');
+                friendInfo.className = 'friend-info';
+                friendInfo.innerHTML = `
+                    <h3>${name}</h3>
+                    <p>${major}</p>
+                `;
+                
+                const removeBtn = document.createElement('button');
+                removeBtn.className = 'remove-friend';
+                removeBtn.innerHTML = '<i class="fa-solid fa-times"></i>';
+                removeBtn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    friendCard.remove();
+                    removeFriend(name);
+                    showPopup("Friend removed");
+                    
+                    // Show empty state if no friends left
+                    if (friendsList.children.length === 1) { // Only the empty state div
+                        friendsEmpty.style.display = 'block';
+                    }
+                });
+                
+                friendCard.appendChild(friendPic);
+                friendCard.appendChild(friendInfo);
+                friendCard.appendChild(removeBtn);
+                friendsList.appendChild(friendCard);
+            }
+            
+            // Function to save friend to localStorage
+            function saveFriend(name, major, picSrc) {
+                const friends = JSON.parse(localStorage.getItem('syntaxHubFriends')) || [];
+                friends.push({ name, major, picSrc });
+                localStorage.setItem('syntaxHubFriends', JSON.stringify(friends));
+            }
+            
+            // Function to remove friend from localStorage
+            function removeFriend(name) {
+                let friends = JSON.parse(localStorage.getItem('syntaxHubFriends')) || [];
+                friends = friends.filter(friend => friend.name !== name);
+                localStorage.setItem('syntaxHubFriends', JSON.stringify(friends));
+            }
+            
+            // Function to load friends from localStorage
+            function loadFriends() {
+                const savedFriends = localStorage.getItem('syntaxHubFriends');
+                if (savedFriends) {
+                    const friends = JSON.parse(savedFriends);
+                    if (friends.length > 0) {
+                        friendsEmpty.style.display = 'none';
+                        friends.forEach(friend => {
+                            addFriendToDOM(friend.name, friend.major, friend.picSrc);
+                        });
+                    } else {
+                        friendsEmpty.style.display = 'block';
+                    }
+                } else {
+                    friendsEmpty.style.display = 'block';
+                }
+            }
+            
+            // Function to add deck to DOM
+            function addDeckToDOM(name, description, cards) {
+                // Hide empty state if visible
+                decksEmpty.style.display = 'none';
+                
+                const deckCard = document.createElement('div');
+                deckCard.className = 'deck-card';
+                deckCard.onclick = function() {
+                    // Navigate to practice page with deck info
+                    localStorage.setItem('currentDeck', JSON.stringify({
+                        name: name,
+                        description: description,
+                        cards: cards
+                    }));
+                    window.location.href = '../PracticePage/practice.html';
+                };
+                
+                // Generate a unique ID for the deck
+                const deckId = 'deck-' + Date.now();
+                deckCard.setAttribute('data-deck-id', deckId);
+                
+                deckCard.innerHTML = `
+                    <h3>${name}</h3>
+                    <p>${description}</p>
+                    <p>${cards} cards</p>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 0%"></div>
+                    </div>
+                    <p class="progress-text">0% completed</p>
+                    <button class="remove-deck">
+                        <i class="fa-solid fa-times"></i>
+                    </button>
+                `;
+                
+                // Add remove functionality
+                const removeBtn = deckCard.querySelector('.remove-deck');
+                removeBtn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    deckCard.remove();
+                    removeDeck(deckId);
+                    showPopup("Deck removed");
+                    
+                    // Show empty state if no decks left
+                    if (decksGrid.children.length === 1) { // Only the empty state div
+                        decksEmpty.style.display = 'block';
+                    }
+                });
+                
+                decksGrid.appendChild(deckCard);
+            }
+            
+            // Function to save deck to localStorage
+            function saveDeck(name, description, cards) {
+                const decks = JSON.parse(localStorage.getItem('syntaxHubDecks')) || [];
+                const deckId = 'deck-' + Date.now();
+                decks.push({ 
+                    id: deckId,
+                    name: name, 
+                    description: description, 
+                    cards: cards, 
+                    progress: 0 
+                });
+                localStorage.setItem('syntaxHubDecks', JSON.stringify(decks));
+            }
+            
+            // Function to remove deck from localStorage
+            function removeDeck(deckId) {
+                let decks = JSON.parse(localStorage.getItem('syntaxHubDecks')) || [];
+                decks = decks.filter(deck => deck.id !== deckId);
+                localStorage.setItem('syntaxHubDecks', JSON.stringify(decks));
+            }
+            
+            // Function to load decks from localStorage
+            function loadDecks() {
+                const savedDecks = localStorage.getItem('syntaxHubDecks');
+                if (savedDecks) {
+                    const decks = JSON.parse(savedDecks);
+                    if (decks.length > 0) {
+                        decksEmpty.style.display = 'none';
+                        decks.forEach(deck => {
+                            addDeckToDOM(deck.name, deck.description, deck.cards);
+                        });
+                    } else {
+                        decksEmpty.style.display = 'block';
+                    }
+                } else {
+                    decksEmpty.style.display = 'block';
+                }
+            }
+            
+            // Function to load badges from localStorage
+            function loadBadges() {
+                const badgesGrid = document.getElementById('badges-grid');
+                const badges = [
+                    { 
+                        id: 1, 
+                        name: "First Steps", 
+                        description: "Complete your first deck", 
+                        earned: false, 
+                        icon: "fa-code",
+                        requirements: "Complete 1 deck"
+                    },
+                    { 
+                        id: 2, 
+                        name: "Hot Streak", 
+                        description: "Answer 10 questions in a row correctly", 
+                        earned: false, 
+                        icon: "fa-fire",
+                        requirements: "10 correct answers in a row"
+                    },
+                    { 
+                        id: 3, 
+                        name: "Master Coder", 
+                        description: "Complete all decks with 100% accuracy", 
+                        earned: false, 
+                        icon: "fa-trophy",
+                        requirements: "100% accuracy on all decks"
+                    },
+                    { 
+                        id: 4, 
+                        name: "Night Owl", 
+                        description: "Study after midnight", 
+                        earned: false, 
+                        icon: "fa-clock",
+                        requirements: "Study between 12AM-5AM"
+                    },
+                    { 
+                        id: 5, 
+                        name: "Quick Learner", 
+                        description: "Complete 5 decks in one week", 
+                        earned: false, 
+                        icon: "fa-bolt",
+                        requirements: "5 decks in 7 days"
+                    },
+                    { 
+                        id: 6, 
+                        name: "Consistent", 
+                        description: "Study for 7 days in a row", 
+                        earned: false, 
+                        icon: "fa-calendar-check",
+                        requirements: "7 consecutive days"
+                    },
+                    { 
+                        id: 7, 
+                        name: "Syntax Master", 
+                        description: "Reach level 5", 
+                        earned: false, 
+                        icon: "fa-star",
+                        requirements: "Reach level 5"
+                    },
+                    { 
+                        id: 8, 
+                        name: "Code Guru", 
+                        description: "Answer 100 questions correctly", 
+                        earned: false, 
+                        icon: "fa-graduation-cap",
+                        requirements: "100 correct answers"
+                    }
+                ];
+                
+                badges.forEach(badge => {
+                    const badgeCard = document.createElement('div');
+                    badgeCard.className = `badge-card ${badge.earned ? 'earned' : 'locked'}`;
+                    
+                    badgeCard.innerHTML = `
+                        <div class="badge-icon">
+                            <i class="fa-solid ${badge.icon}"></i>
+                        </div>
+                        <h3>${badge.name}</h3>
+                        <p>${badge.description}</p>
+                        <p class="badge-requirements">${badge.requirements}</p>
+                    `;
+                    
+                    badgesGrid.appendChild(badgeCard);
+                });
+            }
+            
+            // Function to show popup message
+            function showPopup(message) {
+                const popup = document.getElementById('popup-message');
+                const popupText = document.getElementById('popup-text');
+                popupText.textContent = message;
+                popup.classList.add('show');
+                
+                setTimeout(() => {
+                    popup.classList.remove('show');
+                }, 3000);
+            }
+        });
+    </script>
+    <script src="learn.js"></script>
 </body>
 </html>
