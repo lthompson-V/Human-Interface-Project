@@ -146,7 +146,7 @@ main{
 }
 
 .continue-btn{
-    display: inline-block;
+    display: flex;
     position: absolute;
     justify-content: center;
     bottom: 2em;
