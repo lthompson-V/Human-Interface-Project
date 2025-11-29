@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>New Quiz - SyntaxHub</title>
+    <link rel="stylesheet" href="create_quiz.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+
+<body>
+<header>
+    <button class="return-btn" onclick="location.href='create.html'">
+        <i class="fa-solid fa-arrow-left"></i> Return to Create
+    </button>
+
+    <div class="page-title" contenteditable="true">
+        New Quiz <i class="fa-solid fa-pencil"></i>
+    </div>
+
+    <div class="save-btn" onclick="showSavedPopup()">
+        <i class="fa-solid fa-floppy-disk"></i>
+    </div>
+</header>
+
+<!-- Save popup -->
+<div id="savedPopup">Quiz Saved</div>
+
+<main>
+    <div id="questionsContainer">
+        <!-- First question template -->
+        <div class="question-block">
+            <h2 class="question-number">Question #1:</h2>
+
+            <label>Enter Question:</label>
+            <input type="text" class="question-input">
+
+            <label>Enter Answer:</label>
+            <input type="text" class="answer-input">
+        </div>
+    </div>
+
+    <button id="addQuestionBtn" onclick="addQuestion()">
+        <i class="fa-solid fa-plus"></i> Add New Question
+    </button>
+</main>
+
+<script src="create_quiz.js"></script>
+</body>
+</html>

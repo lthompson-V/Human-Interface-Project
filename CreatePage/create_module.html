@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Module</title>
+
+    <link rel="stylesheet" href="create_module.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- HEADER (Matches Create Page) -->
+    <header>
+        <button class="return-btn" onclick="location.href='create.html'">
+            <i class="fa-solid fa-arrow-left"></i> Return to Create
+        </button>
+
+        <div class="title-container">
+            <input class="editable-title" value="New Module">
+            <i class="fa-solid fa-pencil"></i>
+        </div>
+
+        <button class="save-btn" id="saveModule">
+            <i class="fa-solid fa-floppy-disk"></i>
+        </button>
+    </header>
+
+    <!-- MODULE CREATION AREA -->
+    <main>
+        <div id="moduleContainer"></div>
+
+        <button id="addQuestionBtn" class="add-btn">
+            <i class="fa-solid fa-plus"></i> Add New Question
+        </button>
+    </main>
+
+    <div id="savePopup">Module Saved!</div>
+
+    <script src="create_module.js"></script>
+</body>
+</html>
