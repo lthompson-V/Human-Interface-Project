@@ -37,7 +37,73 @@
     </header>
     
     <main>
+        <div class="search-container">
+            <div class="search-bar-wrapper">
+                <input type="text" id="searchInput" class="search-input" placeholder="Search articles...">
+                <button id="searchBtn" class="search-btn">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+            </div>
+        </div>
         
+        <div class="resources-content" id="mainContent">
+            <h1 class="resources-title">Help Resources</h1>
+            
+            <div class="categories-container">
+                <div class="categories-grid" id="categoriesGrid">
+                    <!-- Page 1-->
+                    <div class="category-page">
+                        <a href="account/account.html" class="category-card">
+                            <i class="fa-solid fa-user"></i>
+                            <p>Account</p>
+                        </a>
+                        <a href="billing/billing.html" class="category-card">
+                            <i class="fa-solid fa-credit-card"></i>
+                            <p>Billing</p>
+                        </a>
+                        <a href="student/student.html" class="category-card">
+                            <i class="fa-solid fa-graduation-cap"></i>
+                            <p>Student</p>
+                        </a>
+                        <a href="teachers/teachers.html" class="category-card">
+                            <i class="fa-solid fa-chalkboard-user"></i>
+                            <p>Teachers</p>
+                        </a>
+                    </div>
+                    <!-- Page 2-->
+                    <div class="category-page">
+                        <a href="safety/safety.html" class="category-card">
+                            <i class="fa-solid fa-shield-halved"></i>
+                            <p>Safety</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="navigation-buttons">
+                <button class="nav-btn" id="prevBtn" aria-label="Previous page">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </button>
+                <button class="nav-btn" id="nextBtn" aria-label="Next page">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+        
+        <div class="search-results" id="searchResults" style="display: none;">
+            <a href="#" class="back-link" id="backToResources">
+                <i class="fa-solid fa-arrow-left"></i>
+                <span>Help Resources</span>
+            </a>
+            <div class="search-results-header">
+                <h2 class="search-query-text" id="searchQueryText"></h2>
+                <p class="results-count" id="resultsCount"></p>
+            </div>
+            <div class="search-results-list" id="searchResultsList"></div>
+            <div class="no-results" id="noResults" style="display: none;">
+                <p>No results found. Try a different search term or <a href="resources.html">return to Help Resources</a>.</p>
+            </div>
+        </div>
 
         <div class="access-container">
         

@@ -17,7 +17,23 @@ moreContent.addEventListener('mouseleave', () => {
   moreContent.classList.remove('show');
 });
 
+// Learn js
+document.getElementById('continue-btn').addEventListener("click", () => {
+  let subject = document.querySelector('input[name="subject"]:checked');
+  let importance = document.querySelector('input[name="importance"]:checked');
+  let difficulty = document.querySelector('input[name="difficulty"]:checked');
 
+  if (!subject || !importance || !difficulty) {
+    alert("Please make sure to select for all required fields!");
+    return;
+  }
+
+  localStorage.setItem('selectedSubject', subject.value);
+  localStorage.setItem('selectedImportance', importance.value);
+  localStorage.setItem('selectedDifficulty', difficulty.value);
+
+  window.location.href = "TopicPage/topic.html";
+});
 // accessibility popup
 
 

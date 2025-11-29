@@ -81,100 +81,104 @@ main{
     cursor: pointer;
 }
 
-/* Learn Page Description Styling */
-.learn-description{
+/* Topic Page Description Styling */
+.topic-description{
     color: #c8dde3;
     text-align: center;
     padding-top: 5em;
 }
-.learn-description h1{
+.topic-description h1{
     font-size: 3.2em;
     margin-bottom: 0.5em;
 }
-.learn-description p{
+.topic-description p{
     font-size: 1.35em;
     width: 50%;
     margin: 0 auto;
     line-height: 1.8em;
 }
 
-/* Dropdown Styles */
-.dropdowns{
-    margin-top: 3em;
-    display: flex;
-    justify-content: center;
-    gap: 2.5em;
-    align-items: center;
-}
-
-.dropdown {
-  background-color: #ffffff;
-  padding: 1.5em;
-  border-radius: 10px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-  width: 300px;
-  text-align: center;
-}
-
-.dropdown h3 {
-  font-size: 2.2em;
-  margin-bottom: 0.5em;
-}
-
-.radio-group {
-  border: 2px solid #ccc;
-  border-radius: 8px;
-  padding: 1.2em 1em 1.5em;
-  background-color: #ffffff;
-}
-
-.radio-group legend {
-  font-size: 1.1em;
-  font-weight: 600;
-  padding: 0 0.5em;
-  color: #445963;
-  font-weight: bold;
-}
-
-.radio-group label {
-  display: block;
-  font-size: 1em;
-  color: #445963;
-  white-space: normal;
-  word-wrap: break-word;
-  align-items: center;
-}
-
-.continue-btn{
-    display: flex;
-    position: absolute;
-    justify-content: center;
-    bottom: 2em;
-    left: 50%;
-    transform: translateX(-50%);
-    padding: 1em 2em;
+#continue-btn{
+    display: block;
+    margin: 40px auto;
+    padding: 15px 40px;
     background-color: #ffffff;
-    border: none;
-    border-radius: 5px;
+    color: #445963;
     font-size: 1.2em;
-    cursor: pointer;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s ease;
-    color: #445963;
     font-weight: 600;
-    text-decoration: none;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.15);
+    transition: background-color 0.3s ease;
 }
 
-
-.continue-btn a{
-    text-decoration: none;
-    color: #445963;
-    font-weight: 500;
+#continue-btn.continue-btn{
+  position: static !important;
+  left: unset !important;
+  bottom: unset !important;
+  transform: none !important;
 }
 
-.continue-btn:hover{
+#continue-btn a{
+    margin-top: 30px;
+    padding: 12px 25px;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 6px;
+    background: #4c9cff;
+    color: white;
+    cursor: pointer;
+}
+
+#continue-btn:hover{
     background-color: #c8dde3;
 }
+
+#topics-container{
+  width: 90%;
+  max-width: 1100px;
+  margin: 1.5em auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+
+.topic-row{
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 12px 15px;
+  background: #374e58;
+  border-radius: 8px;
+  transition: background 0.2s ease;
+}
+
+.topic-row:hover{
+  background: #415a66;
+}
+
+.topic-row label{
+  color: #ffffff;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.topic-row input[type="checkbox"]{
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    accent-color: #4c9cff;
+}
+
+#subject-display{
+    font-size: 1.5em;
+    color: #ffffff;
+    margin-top: 1em;
+    text-align: center;
+}
+
+
 /* More Drop down Styles */
 
 .more-contents {
@@ -211,51 +215,4 @@ main{
 }
 .contact-row{
   border-bottom: none;
-}
-
-
-
-/* accessibility container */
-
-.access-container{
-  position: fixed;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  place-items: center;
-  height: 18em;
-  width: 14.5em;
-  top: 58%;
-  left: 85%;
-  border-radius: 3px;
-  background-color: white;
-  opacity: 0;
-  z-index: 1002;
-}
-.access-container div{
-  font-size: .8em;
-  height:6em;
-  width: 7.8em;
-  border-radius: 3px;
-  background-color: rgb(255, 84, 17);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  cursor: pointer;
-  transition: .2s ease-in;
-}
-.access-container div:hover{
-  background-color: rgb(179, 64, 18);
-}
-.access-container div:active{
-  background-color: rgb(255, 84, 17);
-}
-.access-container div i{
-  font-size: 1.3em;
-  margin-bottom: .5em;
-}
-.access-container.open {
-  opacity: 1;
-  pointer-events: auto;
 }

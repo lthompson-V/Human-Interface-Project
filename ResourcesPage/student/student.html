@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SyntaxHub</title>
+    <link rel="stylesheet" href="../category.css">
+
+    <!-- CDN for font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <!-- Tags for Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <header>
+        <p class="logo">SyntaxHub</p>
+        <nav>
+            <ul>
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="../../LearnPage/learn.html">Learn</a></li>
+                <li><a href="../../PracticePage/practice.html">Practice</a></li>
+                <li><a href="../../ProgressPage/progress.html">Progress</a></li>
+                <li class="more-tab"><a href="#">More <i class="fa-solid fa-caret-down"></i></a></li>
+            </ul>
+            <div class="more-contents">
+                <div class="create-row menu"><a href="../../CreatePage/create.html">Create</a></div>
+                <div class="profile-row menu"><a href="../../ProfilePage/profile.html">Profile</a></div>
+                <div class="resources-row menu"><a href="../../ResourcesPage/resources.html">Resources</a></div>
+                <div class="about-row menu"><a href="../../AboutPage/about.html">About Us</a></div>
+                <div class="contact-row menu"><a href="../../ContactPage/contact.html">Contact Us</a></div>
+            </div>
+        </nav>
+    </header>
+    
+    <main>
+        <div class="category-content">
+            <a href="../resources.html" class="back-link">
+                <i class="fa-solid fa-arrow-left"></i>
+                <span>Help Resources</span>
+            </a>
+            
+            <div class="category-header">
+                <i class="fa-solid fa-graduation-cap"></i>
+                <h1>Student</h1>
+            </div>
+            
+            <div class="popular-section">
+                <h2 class="section-title">Popular articles</h2>
+                <div class="popular-articles-container">
+                    <a href="article.html" class="popular-article-card">
+                        <h3 class="article-title">Lorem Ipsum</h3>
+                        <p class="article-preview">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras lacinia magna id libero tincidunt, sit amet pulvinar enim aliquet...</p>
+                    </a>
+                    
+                    <a href="article.html" class="popular-article-card">
+                        <h3 class="article-title">Lorem Ipsum</h3>
+                        <p class="article-preview">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras lacinia magna id libero tincidunt, sit amet pulvinar enim aliquet...</p>
+                    </a>
+                    
+                    <a href="article.html" class="popular-article-card">
+                        <h3 class="article-title">Lorem Ipsum</h3>
+                        <p class="article-preview">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras lacinia magna id libero tincidunt, sit amet pulvinar enim aliquet...</p>
+                    </a>
+                    
+                    <a href="article.html" class="popular-article-card">
+                        <h3 class="article-title">Lorem Ipsum</h3>
+                        <p class="article-preview">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras lacinia magna id libero tincidunt, sit amet pulvinar enim aliquet...</p>
+                    </a>
+                    
+                    <a href="article.html" class="popular-article-card">
+                        <h3 class="article-title">Lorem Ipsum</h3>
+                        <p class="article-preview">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras lacinia magna id libero tincidunt, sit amet pulvinar enim aliquet...</p>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="subcategories-section">
+                <h2 class="section-title">Browse by topic</h2>
+                <div class="subcategories-list">
+                    <button class="subcategory-btn active" data-subcategory="topic-a">
+                        Topic A
+                    </button>
+                    <button class="subcategory-btn" data-subcategory="topic-b">
+                        Topic B
+                    </button>
+                    <button class="subcategory-btn" data-subcategory="topic-c">
+                        Topic C
+                    </button>
+                    <button class="subcategory-btn" data-subcategory="topic-d">
+                        Topic D
+                    </button>
+                </div>
+                
+                <div class="subcategory-articles-container" id="subcategoryArticles">
+                    <div class="subcategory-articles" data-subcategory="topic-a">
+                        <a href="article.html" class="subcategory-article-card">
+                            <h3 class="article-title">Topic A Article 1</h3>
+                            <p class="article-preview">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras lacinia magna id libero tincidunt, sit amet pulvinar enim aliquet...</p>
+                        </a>
+                        <a href="article.html" class="subcategory-article-card">
+                            <h3 class="article-title">Topic A Article 2</h3>
+                            <p class="article-preview">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras lacinia magna id libero tincidunt, sit amet pulvinar enim aliquet...</p>
+                        </a>
+                        <a href="article.html" class="subcategory-article-card">
+                            <h3 class="article-title">Topic A Article 3</h3>
+                            <p class="article-preview">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras lacinia magna id libero tincidunt, sit amet pulvinar enim aliquet...</p>
+                        </a>
+                        <a href="article.html" class="subcategory-article-card">
+                            <h3 class="article-title">Topic A Article 4</h3>
+                            <p class="article-preview">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras lacinia magna id libero tincidunt, sit amet pulvinar enim aliquet...</p>
+                        </a>
+                    </div>
+                    
+                    <div class="subcategory-articles hidden" data-subcategory="topic-b">
+                        <a href="article.html" class="subcategory-article-card">
+                            <h3 class="article-title">Topic B Article 1</h3>
+                            <p class="article-preview">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras lacinia magna id libero tincidunt, sit amet pulvinar enim aliquet...</p>
+                        </a>
+                        <a href="article.html" class="subcategory-article-card">
+                            <h3 class="article-title">Topic B Article 2</h3>
+                            <p class="article-preview">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras lacinia magna id libero tincidunt, sit amet pulvinar enim aliquet...</p>
+                        </a>
+                        <a href="article.html" class="subcategory-article-card">
+                            <h3 class="article-title">Topic B Article 3</h3>
+                            <p class="article-preview">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras lacinia magna id libero tincidunt, sit amet pulvinar enim aliquet...</p>
+                        </a>
+                    </div>
+                    
+                    <div class="subcategory-articles hidden" data-subcategory="topic-c">
+                        <a href="article.html" class="subcategory-article-card">
+                            <h3 class="article-title">Topic C Article 1</h3>
+                            <p class="article-preview">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras lacinia magna id libero tincidunt, sit amet pulvinar enim aliquet...</p>
+                        </a>
+                        <a href="article.html" class="subcategory-article-card">
+                            <h3 class="article-title">Topic C Article 2</h3>
+                            <p class="article-preview">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras lacinia magna id libero tincidunt, sit amet pulvinar enim aliquet...</p>
+                        </a>
+                    </div>
+                    
+                    <div class="subcategory-articles hidden" data-subcategory="topic-d">
+                        <a href="article.html" class="subcategory-article-card">
+                            <h3 class="article-title">Topic D Article 1</h3>
+                            <p class="article-preview">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras lacinia magna id libero tincidunt, sit amet pulvinar enim aliquet...</p>
+                        </a>
+                        <a href="article.html" class="subcategory-article-card">
+                            <h3 class="article-title">Topic D Article 2</h3>
+                            <p class="article-preview">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras lacinia magna id libero tincidunt, sit amet pulvinar enim aliquet...</p>
+                        </a>
+                        <a href="article.html" class="subcategory-article-card">
+                            <h3 class="article-title">Topic D Article 3</h3>
+                            <p class="article-preview">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras lacinia magna id libero tincidunt, sit amet pulvinar enim aliquet...</p>
+                        </a>
+                        <a href="article.html" class="subcategory-article-card">
+                            <h3 class="article-title">Topic D Article 4</h3>
+                            <p class="article-preview">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras lacinia magna id libero tincidunt, sit amet pulvinar enim aliquet...</p>
+                        </a>
+                        <a href="article.html" class="subcategory-article-card">
+                            <h3 class="article-title">Topic D Article 5</h3>
+                            <p class="article-preview">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras lacinia magna id libero tincidunt, sit amet pulvinar enim aliquet...</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="access-container">
+            <div class="screen-reader">
+                <i class="fa-solid fa-wave-square"></i>
+                <p>Screen Reader</p>
+            </div>
+            <div class="Contrast">
+                <i class="fa-solid fa-circle-half-stroke"></i>
+                <p>Contrast</p>
+            </div>
+            <div class="Saturation">
+                <i class="fa-solid fa-droplet"></i>
+                <p>Saturation</p>
+            </div>
+            <div class="Bigger Text">
+                <i class="fa-solid fa-text-height"></i>
+                <p>Bigger Text</p>
+            </div>
+            <div class="Text Spacing">
+                <i class="fa-solid fa-text-width"></i>
+                <p>Text Spacing</p>
+            </div>
+            <div class="Big Cursor">
+                <i class="fa-solid fa-arrow-pointer"></i>
+                <p>Big Cursor</p>
+            </div>
+        </div>
+
+        <i class="fa-solid fa-universal-access"></i>
+    </main>
+
+
+
+
+
+
+
+
+
+
+    <script src="../category.js"></script>
+</body>
+</html>
