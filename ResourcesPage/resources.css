@@ -24,6 +24,10 @@ header{
     text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
 }
 
+nav {
+    position: relative;
+}
+
 nav ul{
     display: flex;
     padding-right: 6em;
@@ -273,6 +277,7 @@ main{
   right: 3.5em;
   top: 4em;
   box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  z-index: 1000;
 }
 
 .more-contents.show {
@@ -312,6 +317,7 @@ main{
   border-radius: 3px;
   background-color: white;
   opacity: 0;
+  pointer-events: none;
   z-index: 1002;
 }
 .access-container div{

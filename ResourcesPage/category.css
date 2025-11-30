@@ -355,6 +355,7 @@ main{
   border-radius: 3px;
   background-color: white;
   opacity: 0;
+  pointer-events: none;
   z-index: 1002;
 }
 .access-container div{
