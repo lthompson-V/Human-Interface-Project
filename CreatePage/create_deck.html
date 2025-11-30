@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Deck – SyntaxHub</title>
+    <link rel="stylesheet" href="create.css">
+    <link rel="stylesheet" href="deck.css">
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- SAME HEADER AS CREATE PAGE -->
+    <header>
+        <p class="logo">SyntaxHub</p>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../LearnPage/learn.html">Learn</a></li>
+                <li><a href="../PracticePage/practice.html">Practice</a></li>
+                <li><a href="../ProgressPage/progress.html">Progress</a></li>
+                <li class="more-tab"><a href="#">More <i class="fa-solid fa-caret-down"></i></a></li>
+            </ul>
+
+            <div class="more-contents">
+                <div class="create-row menu"><a href="create.html">Create</a></div>
+                <div class="profile-row menu"><a href="../ProfilePage/profile.html">Profile</a></div>
+                <div class="resources-row menu"><a href="../ResourcesPage/resources.html">Resources</a></div>
+                <div class="about-row menu"><a href="../AboutPage/about.html">About Us</a></div>
+                <div class="contact-row menu"><a href="../ContactPage/contact.html">Contact Us</a></div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- Accessibility panel -->
+        <div class="access-container">
+            <div><i class="fa-solid fa-wave-square"></i><p>Screen Reader</p></div>
+            <div><i class="fa-solid fa-circle-half-stroke"></i><p>Contrast</p></div>
+            <div><i class="fa-solid fa-droplet"></i><p>Saturation</p></div>
+            <div><i class="fa-solid fa-text-height"></i><p>Bigger Text</p></div>
+            <div><i class="fa-solid fa-text-width"></i><p>Text Spacing</p></div>
+            <div><i class="fa-solid fa-arrow-pointer"></i><p>Big Cursor</p></div>
+        </div>
+
+        <!-- PAGE TITLE + TOP LEFT BUTTONS -->
+        <div class="deck-header">
+            <button class="return-btn" onclick="location.href='create.html'">
+                <i class="fa-solid fa-arrow-left"></i> Return to Create
+            </button>
+
+            <div class="save-btn" onclick="showSavePopup()">
+                <i class="fa-solid fa-floppy-disk"></i>
+            </div>
+
+            <div class="deck-title">
+                <input id="deckName" value="New Deck">
+                <i class="fa-solid fa-pencil"></i>
+            </div>
+        </div>
+
+        <!-- POPUP -->
+        <div id="savePopup" class="save-popup">Deck Saved</div>
+
+        <!-- CARD EDITOR -->
+        <div class="card-editor">
+
+            <div class="card-box">
+                <p class="card-label">Enter Card Front</p>
+                <textarea></textarea>
+            </div>
+
+            <div class="card-box">
+                <p class="card-label">Enter Card Back</p>
+                <textarea></textarea>
+            </div>
+
+        </div>
+
+        <p class="card-count">Card 1 / 1</p>
+
+        <button class="add-card-btn">
+            <i class="fa-solid fa-plus"></i> Add New Card
+        </button>
+
+        <i class="fa-solid fa-universal-access"></i>
+    </main>
+
+    <script src="create.js"></script>
+    <script src="deck.js"></script>
+
+</body>
+</html>
