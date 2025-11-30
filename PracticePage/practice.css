@@ -71,16 +71,125 @@ main{
     transform: translateY(0);
   }
   40% {
-    transform: translateY(-5px); /* move up */
+    transform: translateY(-5px);
   }
   60% {
-    transform: translateY(-7px); /* smaller bounce */
+    transform: translateY(-7px);
   }
 }
 .fa-universal-access:hover{
     cursor: pointer;
 }
 
+/* Practice Page Styles */
+.practice-description{
+    color: #c8dde3;
+    text-align: center;
+    padding-top: 5em;
+}
+.practice-description h1{
+    font-size: 3.2em;
+    margin-bottom: 0.5em;
+}
+.practice-description p{
+    font-size: 1.35em;
+    width: 50%;
+    margin: 0 auto;
+    line-height: 1.8em;
+}
+
+/* Dropdown Styles */
+.dropdowns{
+    margin-top: 3em;
+    display: flex;
+    justify-content: center;
+    gap: 2.5em;
+    align-items: center;
+}
+
+.dropdown {
+  background-color: #ffffff;
+  padding: 1.5em;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  width: 300px;
+  text-align: center;
+}
+
+.dropdown h3 {
+  font-size: 2.2em;
+  margin-bottom: 0.5em;
+}
+
+.radio-group {
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  padding: 1.2em 1em 1.5em;
+  background-color: #ffffff;
+}
+
+.radio-group legend {
+  font-size: 1.1em;
+  font-weight: 600;
+  padding: 0 0.5em;
+  color: #445963;
+  font-weight: bold;
+}
+
+.checkbox-group {
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  padding: 1.2em 1em 1.5em;
+  background-color: #ffffff;
+  color: #445963;
+}
+
+.checkbox-group legend {
+  font-size: 1.1em;
+  font-weight: 600;
+  padding: 0 0.5em;
+  color: #445963;
+  font-weight: bold;
+}
+
+.radio-group label {
+  display: block;
+  font-size: 1em;
+  color: #445963;
+  white-space: normal;
+  word-wrap: break-word;
+  align-items: center;
+}
+
+.continue-btn{
+    position: absolute;
+    justify-content: center;
+    bottom: 2em;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 1em 2em;
+    background-color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2em;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+    display: inline-block;
+    color: #445963;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.continue-btn a{
+    text-decoration: none;
+    color: #445963;
+    font-weight: 500;
+}
+
+.continue-btn:hover{
+    background-color: #c8dde3;
+}
 
 /* More Drop down Styles */
 
