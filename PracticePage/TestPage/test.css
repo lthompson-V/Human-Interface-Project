@@ -1,0 +1,324 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+}
+/* Styling for the Home Page */
+
+/* Header and nav links styling */
+header{
+    height: 4em;
+    background-color: rgb(255, 255, 255);
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.logo{
+    padding-left: 4em;
+    font-size: 1.8em;
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    color: rgb(255, 84, 17);
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+}
+
+nav ul{
+    display: flex;
+    padding-right: 6em;
+}
+ul li{
+    list-style-type: none;
+    padding: 1em;
+    
+}
+ul li a {
+  position: relative;
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+  font-size: 1em;
+  transition: color 0.3s;
+  font-weight: 400;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+ul li a:hover{
+    color: rgb(255, 84, 17);
+}
+.fa-caret-down{
+    color: rgb(255, 84, 17);
+}
+
+/* Start of main content styling */
+main{
+    min-height: calc(100vh - 4em);
+    width: 100%;
+    background-color: #374e58;
+    padding-bottom: 4em;
+}
+
+.fa-universal-access{
+    position: fixed;
+    bottom: 40px;
+    right: 30px;
+    font-size: 2em;
+    color: rgb(255, 84, 17);
+    animation: bounce 2s infinite;
+}
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-5px); /* move up */
+  }
+  60% {
+    transform: translateY(-7px); /* smaller bounce */
+  }
+}
+.fa-universal-access:hover{
+    cursor: pointer;
+}
+
+body {
+  background-color: #374e58;
+}
+/* More Drop down Styles */
+
+.more-contents {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s ease;
+  position: absolute;
+  background: white;
+  border: 1px solid #ccc;
+  padding: 10px;
+  right: 3.5em;
+  top: 4em;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.more-contents.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.menu{
+  padding: .6em; 
+  border-bottom: 1px solid rgba(0, 0, 0, 0.445);
+}
+.menu a{
+  text-decoration: none;
+  color: black;
+  transition: .2s ease-in-out;
+}
+.menu a:hover{
+  color: rgb(255, 84, 17);
+}
+.contact-row{
+  border-bottom: none;
+}
+
+
+/* Start styling main content in home page */
+.main-container{
+  display: flex;
+}
+.left-side{
+  height: calc(100vh - 4em);
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.left-container{
+  text-align: center;
+  margin-left: 6em;
+}
+.main-text{
+  color:white;
+  font-size: 3.2em;
+  line-height: 2em;
+  text-shadow:  3px 2px 10px rgba(0, 0, 0, 0.788);
+  
+}
+.main-desc{
+  padding-top: 1em;
+  color: white;
+  font-size: 1.7em;
+  font-weight: 300;
+  width: 73%;
+  margin: 0 auto;
+  text-shadow:  3px 2px 10px rgba(0, 0, 0, 0.788);
+  text-align: center;
+  
+}
+.main-btns{
+  margin-top: 4em;
+}
+.main-btns a{
+  border: none;
+  background-color: rgb(255, 84, 17);
+  padding: 1em 2.0em;
+  border-radius: 5px;
+  margin: 1em;
+  box-shadow: 0px 2px 5px 2px rgba(24, 24, 24, 0.699);
+  transition: background-color 0.3s;
+  cursor: pointer;
+  text-shadow:  3px 2px 10px rgba(0, 0, 0, 0.788);
+}
+.main-btns a{
+  text-decoration: none;
+  color: white;
+  font-size: 1.4em;
+  
+}
+.main-btns a:hover {
+  background-color: rgb(182, 59, 15);
+}
+.right-side{
+  height: calc(100vh - 4em);
+  width: 50%;
+}
+.right-side img{
+  height: 46em;
+  margin-top: 4.5em;
+}
+
+/*Practice Page CSS*/
+main {
+    padding: 2em;
+    color: #c8dde3;
+}
+
+h2 {
+    margin-bottom: 1em;
+}
+
+.option-btn {
+    display: block;
+    margin: 0.5em 0;
+    padding: 0.8em 1.2em;
+    background: #fff;
+    color: #374e58;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1em;
+}
+
+.option-btn:hover {
+    background: #c8dde3;
+}
+
+input[type="text"] {
+    padding: 0.6em;
+    font-size: 1.1em;
+    margin-right: 0.5em;
+}
+
+.matching-container {
+    margin-top: 1em;
+    padding: 1em;
+}
+
+.match-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.8em;
+}
+
+.match-row span {
+    font-size: 1.2em;
+    color: #c8dde3;
+    width: 40%;
+}
+
+.match-row select {
+    padding: 0.5em;
+    font-size: 1em;
+    width: 50%;
+}
+
+.finish-btn {
+    display: block;
+    margin: 2em auto;
+    padding: 1em 2.2em;
+    font-size: 1.3em;
+    background-color: #ffffff;
+    color: #374e58;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.3);
+    transition: background-color 0.3s ease, transform 0.15s ease;
+}
+
+.finish-btn:hover {
+    background-color: #c8dde3;
+    transform: scale(1.03);
+}
+
+/*Modal Styling (alert button if user tries to finish without answering all questions*/
+#alert-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.65);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.alert-box {
+    background: #ffffff;
+    padding: 2em;
+    border-radius: 10px;
+    text-align: center;
+    width: 320px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.4);
+}
+
+.alert-box h2 {
+    margin-bottom: 0.5em;
+    color: #374e58;
+}
+
+#modal-close-btn {
+    margin-top: 1em;
+    background: #374e58;
+    color: #ffffff;
+    padding: 0.8em 1.4em;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    font-size: 1.1em;
+}
+
+#modal-close-btn:hover {
+    font-style: italic;
+}
+
+/*Review Answers Page Styling*/
+.review-block {
+    background: rgba(255, 255, 255, 0.15);
+    padding: 1.5em;
+    border-radius: 10px;
+    margin-bottom: 1.5em;
+    color: white;
+}
+
+.status-icon {
+    font-size: 2em;
+    margin-right: 0.4em;
+    color: #ffffff;
+    vertical-align: middle;
+}
