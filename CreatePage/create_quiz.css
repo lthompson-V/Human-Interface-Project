@@ -1,0 +1,128 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+}
+
+body{
+    background-color: #374e58;
+}
+
+/* Header bar */
+header{
+    height: 4em;
+    display: flex;
+    align-items: center;
+    padding: 0 2em;
+    background-color: white;
+    justify-content: space-between;
+}
+
+/* Return Button */
+.return-btn{
+    border: none;
+    background: none;
+    font-size: 1.1em;
+    cursor: pointer;
+    color: rgb(255, 84, 17);
+    font-weight: 500;
+}
+.return-btn i{
+    margin-right: .4em;
+}
+
+/* Editable Title */
+.page-title{
+    font-size: 1.7em;
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    text-align: center;
+    color: #333;
+    outline: none;
+}
+.page-title i{
+    color: rgb(255, 84, 17);
+    margin-left: .3em;
+}
+
+/* Save Button */
+.save-btn{
+    font-size: 1.7em;
+    color: rgb(255, 84, 17);
+    cursor: pointer;
+}
+
+/* Save Popup */
+#savedPopup{
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: rgb(255, 84, 17);
+    color: white;
+    padding: 12px 20px;
+    border-radius: 6px;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    font-weight: 500;
+    z-index: 1000;
+}
+
+/* Main content */
+main{
+    padding: 2em;
+    color: white;
+}
+
+.question-block{
+    background: white;
+    padding: 1.5em;
+    border-radius: 12px;
+    max-width: 600px;
+    margin: 1.2em auto;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+}
+
+.question-number{
+    color: #333;
+    font-family: "Poppins";
+    margin-bottom: .6em;
+}
+
+label{
+    color: #333;
+    font-weight: 500;
+    margin-top: .8em;
+}
+
+input{
+    padding: .7em;
+    margin-top: .4em;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+/* Add Question Button */
+#addQuestionBtn{
+    margin: 2em auto;
+    display: flex;
+    align-items: center;
+    gap: .5em;
+    background-color: rgb(255, 84, 17);
+    color: white;
+    border: none;
+    padding: .9em 1.6em;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.1em;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+}
+#addQuestionBtn i{
+    font-size: 1.2em;
+}
+
+#addQuestionBtn:active{
+    transform: scale(.94);
+}
