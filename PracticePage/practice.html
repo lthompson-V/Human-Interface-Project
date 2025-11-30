@@ -50,19 +50,28 @@
             <fieldset id="question-type-fieldset" class="checkbox-group">
                 <legend>Question Type</legend>
                 <label><input type="checkbox" name="question-type" value="multiple-choice"> Multiple Choice</label>
+                <br>
                 <label><input type="checkbox" name="question-type" value="true-false"> True/False</label>
+                <br>
                 <label><input type="checkbox" name="question-type" value="fill-in-the-blank"> Fill in the Blank</label>
+                <br>
                 <label><input type="checkbox" name="question-type" value="matching"> Matching</label>
             </fieldset>
             </div>
 
             <div class="dropdown">
-            <h3>&#9989;</h3>
-            <fieldset id="answer-with-fieldset" class="radio-group">
-                <legend>Answer With</legend>
-                <label><input type="radio" name="answer-with" value="definition"> Definition</label>
-                <label><input type="radio" name="answer-with" value="term"> Term</label>
-                <label><input type="radio" name="answer-with" value="random"> Random</label>
+            <h3>&#x1F50D;</h3>
+            <fieldset id="subject-with-fieldset" class="radio-group">
+                <legend>Subject</legend>
+                <label><input type="radio" name="subject" value="cs1"> CS1</label>
+                <br>
+                <label><input type="radio" name="subject" value="cs2"> CS2</label>
+                <br>
+                <label><input type="radio" name="subject" value="cs3"> CS3</label>
+                <br>
+                <label><input type="radio" name="subject" value="computer-communication-networks"> Computer Communication Networks</label>
+                <br>
+                <label><input type="radio" name="subject" value="graphic-design"> Graphic Design</label>
             </fieldset>
             </div>
 
@@ -71,11 +80,14 @@
             <fieldset id="number-of-questions-fieldset" class="radio-group">
                 <legend>Number of Questions</legend>
                 <label><input type="radio" name="number-of-questions" value="5"> 5</label>
+                <br>
                 <label><input type="radio" name="number-of-questions" value="10"> 10</label>
+                <br>
                 <label><input type="radio" name="number-of-questions" value="15"> 15</label>
+                <br>
                 <label>
                     <input type="radio" name="number-of-questions" value="custom" id="number-custom">
-                    <input type="number" id="custom-number-input" name="custom-number" min="1" max="100" disabled>
+                    <input type="number" id="custom-number-input" name="custom-number" min="1" max="20" disabled>
                 </label>
 
                 <script>
@@ -101,9 +113,9 @@
         </div>
 
         <!-- Start Practice Button -->
-        <div class="continue-btn">
-            <button id="continue-btn">Start Quiz!</button>
-        </div>
+        <button class="continue-btn" id="start-practice-btn"> Begin Test!</button>
+
+        <i class="fa-solid fa-universal-access"></i>
 
         <div class="access-container">
         
